@@ -1,4 +1,4 @@
-package contest.atcoder.begginer.p01
+package atcoder.begginer.p01
 
 object C {
   val sc = new java.util.Scanner(System.in)

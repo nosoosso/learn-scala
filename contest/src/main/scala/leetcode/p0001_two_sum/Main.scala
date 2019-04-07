@@ -1,4 +1,4 @@
-package contest.leetcode.p0001_two_sum
+package leetcode.p0001_two_sum
 
 object Main extends App {
   val r = Solution.twoSum(Array(2, 7, 11, 15), 9)
@@ -21,6 +21,3 @@ object Solution {
     Array(ra._2, rb._2)
   }
 }
-
-
-
