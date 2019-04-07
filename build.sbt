@@ -1,12 +1,15 @@
 lazy val common = (project in file("common"))
   .settings(
-    version := "1.0",
-    scalaVersion := "2.12.8"
+    scalaVersion := "2.12.8",
+  )
+
+lazy val contest = (project in file("contest"))
+  .settings(
+    scalaVersion := "2.12.8",
   )
 
 lazy val fp = (project in file("fp"))
   .settings(
-    version := "0.1",
     scalaVersion := "2.12.8",
     scalacOptions += "-Ypartial-unification",
     libraryDependencies ++= Seq(
