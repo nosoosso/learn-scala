@@ -24,7 +24,7 @@ object ReportRow {
   }
 }
 
-object Main {
+object MonoidMain {
   def fetchReports(): Seq[ReportRow] = Seq(new ReportRow(3, 10), new ReportRow(20, 30))
 
   def main(args: Array[String]): Unit = {
