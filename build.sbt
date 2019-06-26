@@ -10,3 +10,4 @@ lazy val contest = (project in file("contest"))
 
 lazy val fp = project in file("fp")
 
+lazy val scalajs = project in file("scalajs")
