@@ -21,8 +21,16 @@ object AccumulateError extends App {
       if (i.employees.length < 4) Nil else List("too many employees")
     )
 
-  //  val jsonString2 = """{"employees": [{"name": "yamada"}, {"name": "ito"}, {"name": "tanakaaaaaaaaaaaaaaaa!"}, {"name": ""}]}"""
+  // "too many employees" は表示されない
+  val jsonString1 =
+    """{"employees": [{"name": "yamada"}, {"name": "ito"}, {"name": "tanakaaaaaaaaaaaaaaaa!"}, {"name": ""}]}"""
+  // Invalid(NonEmptyList(DecodingFailure(name is too long, List(MoveRight, MoveRight, DownArray, DownField(employees))), DecodingFailure(! is not allowed, List(MoveRight, MoveRight, DownArray, DownField(employees))), DecodingFailure(name is required, List(MoveRight, MoveRight, MoveRight, DownArray, DownField(employees)))))
+  println(parser.decodeAccumulating[Company](jsonString1))
+
+  // "too many employees" が表示される
   val jsonString2 =
     """{"employees": [{"name": "yamada"},{"name": "yamada"},{"name": "yamada"},{"name": "yamada"}]}"""
+  // Invalid(NonEmptyList(DecodingFailure(too many employees, List())))
   println(parser.decodeAccumulating[Company](jsonString2))
+
 }
