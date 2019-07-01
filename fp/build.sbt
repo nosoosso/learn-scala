@@ -6,7 +6,7 @@ addCompilerPlugin(
   "org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full
 )
 
-val circeVersion = "0.10.0"
+val circeVersion = "0.11.1"
 
 libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-core" % "1.6.0",
