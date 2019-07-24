@@ -32,5 +32,4 @@ object AccumulateError extends App {
     """{"employees": [{"name": "yamada"},{"name": "yamada"},{"name": "yamada"},{"name": "yamada"}]}"""
   // Invalid(NonEmptyList(DecodingFailure(too many employees, List())))
   println(parser.decodeAccumulating[Company](jsonString2))
-
 }
