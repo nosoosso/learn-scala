@@ -7,7 +7,6 @@ import cats.data.Kleisli
 import scala.util.Try
 
 object Simple extends App {
-
   object OptionExample {
     def parseInt(a: String): Option[Int] = Try(a.toInt).toOption
 
@@ -37,5 +36,4 @@ object Simple extends App {
   OptionExample
   println("------")
   ListExample
-
 }

@@ -19,26 +19,19 @@ object StateTFuture extends App {
 
 case class Human2(name: String, age: Int, man: Boolean)
 
-
 object Human2 {
   type FutureState[S, A] = StateT[Future, S, A]
 
   def setName(newName: String): FutureState[Human2, Unit] = {
-    StateT { human: Human2 =>
-      Future.successful((human.copy(name = newName), ()))
-    }
+    StateT { human: Human2 => Future.successful((human.copy(name = newName), ())) }
   }
 
   def addAge(num: Int): FutureState[Human2, Unit] = {
-    StateT.modify { human =>
-      human.copy(age = human.age + num)
-    }
+    StateT.modify { human => human.copy(age = human.age + num) }
   }
 
   def toggleSex: FutureState[Human2, Unit] = {
-    StateT.modify { human =>
-      human.copy(man = !human.man)
-    }
+    StateT.modify { human => human.copy(man = !human.man) }
   }
 
   def modifyHuman: FutureState[Human2, Unit] = {

@@ -13,7 +13,6 @@ import eu.timepit.refined.numeric._
 import eu.timepit.refined.string._
 
 object CirceWithRefined extends App {
-
   case class Person(age: Int Refined Positive)
 
   val validJson = """{ "age": 30 }"""

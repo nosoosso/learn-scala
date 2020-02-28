@@ -11,4 +11,3 @@ object Main extends App {
   println(List("a", "b", "c", "d").combineAll)
   println(List(Set(1, 2), Set(2, 3)).combineAll)
 }
-

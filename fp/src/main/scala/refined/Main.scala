@@ -16,7 +16,6 @@ object Main extends App {
     val valid: ShortUrl = "http://example.com"
     //    val notUrl: ShortUrl = "hogehogehoge"
     //    val tooLongUrl: ShortUrl = "http://goooooooooooooooogle.com"
-
   }
 
   def url: Unit = {
@@ -32,7 +31,5 @@ object Main extends App {
     // compilation error
     //  val a = "hoge"
     //  println(isHttps(a))
-
   }
-
 }

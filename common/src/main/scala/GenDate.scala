@@ -1,7 +1,7 @@
 object GenDate extends App {
   val zeroFill: PartialFunction[Int, String] = {
     case i if i < 10 => "0" + i.toString
-    case i => i.toString
+    case i           => i.toString
   }
 
   val surroundWithQuote = (str: String) => {
@@ -20,4 +20,3 @@ object GenDate extends App {
     .mkString(",")
   println(day)
 }
-

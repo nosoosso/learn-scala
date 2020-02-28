@@ -1,6 +1,5 @@
 package monad.either
 
-
 import cats.data.EitherT
 import cats.instances.future._
 
@@ -27,8 +26,8 @@ object PracticalEitherT extends App {
   // Left(Article not found: articleId=4)
 }
 
-
 object ArticleService {
+
   /**
     * 記事を２つ取得し、片方の内容をもう片方にコピーする。
     * このときコピー先の記事がロック状態だった場合、コピーに失敗する。
@@ -44,7 +43,7 @@ object ArticleService {
 
     def validateNotLocked(article: Article): EitherT[Future, ArticleError, Unit] = {
       article.locked match {
-        case true => EitherT.leftT(LockedError(article.articleId))
+        case true  => EitherT.leftT(LockedError(article.articleId))
         case false => EitherT.rightT(())
       }
     }
@@ -58,17 +57,14 @@ object ArticleService {
       EitherT.right(result)
     }
 
-
     for {
       fromArticle <- getArticle(fromId)
       toArticle <- getArticle(toId)
       _ <- validateNotLocked(toArticle)
       updated <- copyAndUpdate(fromArticle, toArticle)
     } yield updated
-
   }
 }
-
 
 object ArticleApi {
   val articles: Seq[Article] = Seq(

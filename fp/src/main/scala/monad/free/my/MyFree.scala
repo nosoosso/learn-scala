@@ -1,8 +1,6 @@
 package monad.free.my
 
-
 object MyFree extends App {
-
   trait Functor[F[_]] {
     def map[A, B](fa: F[A])(f: A => B): F[B]
   }
@@ -35,14 +33,13 @@ object MyFree extends App {
 
     def flatMap[B](f: A => Free[F, B])(implicit functor: Functor[F]): Free[F, B] = this match {
       case FreeC(ff) => FreeC(functor.map(ff)(x => x.flatMap(f)))
-      case Pure(a) => f(a)
+      case Pure(a)   => f(a)
     }
   }
 
   case class FreeC[F[_], A](f: F[Free[F, A]]) extends Free[F, A]
 
   case class Pure[F[_], A](a: A) extends Free[F, A]
-
 
   println(FreeC[Option, Nothing](None))
   println(FreeC[Option, Nothing](Some(FreeC[Option, Nothing](None))))

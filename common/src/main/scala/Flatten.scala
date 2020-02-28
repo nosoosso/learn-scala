@@ -17,11 +17,14 @@ object Flatten extends App {
 
   println(Seq(Some(1), None, Some(2)).flatten)
 
-  println(Seq(1, 2, 3, 4, 5, 6, 7, 8)
-    .withFilter(_ % 2 == 0)
-    .map(_ + 1))
+  println(
+    Seq(1, 2, 3, 4, 5, 6, 7, 8)
+      .withFilter(_ % 2 == 0)
+      .map(_ + 1)
+  )
 
-  println(Seq(1, 2, 3, 4, 5, 6, 7, 8)
-    .collect { case n if n % 2 == 0 => n + 1 })
-
+  println(
+    Seq(1, 2, 3, 4, 5, 6, 7, 8)
+      .collect { case n if n % 2 == 0 => n + 1 }
+  )
 }

@@ -4,7 +4,6 @@ import io.circe._
 import io.circe.generic.semiauto._
 
 object AccumulateError extends App {
-
   case class Company(employees: Seq[Person])
 
   case class Person(name: String)
@@ -17,9 +16,7 @@ object AccumulateError extends App {
     )
 
   implicit val decodeCompany = deriveDecoder[Company]
-    .ensure(i =>
-      if (i.employees.length < 4) Nil else List("too many employees")
-    )
+    .ensure(i => if (i.employees.length < 4) Nil else List("too many employees"))
 
   // "too many employees" は表示されない
   val jsonString1 =

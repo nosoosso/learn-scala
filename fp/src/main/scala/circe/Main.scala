@@ -13,7 +13,6 @@ import eu.timepit.refined.numeric._
 import eu.timepit.refined.string._
 
 object Main extends App {
-
   case class Person(age: Int Refined Positive, homepage: String Refined Url);
 
   {
@@ -53,6 +52,5 @@ object Main extends App {
 
     val decodedFoo = decode[Person](json)
     println(decodedFoo)
-
   }
 }

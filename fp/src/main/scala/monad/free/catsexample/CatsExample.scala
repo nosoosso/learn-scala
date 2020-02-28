@@ -16,7 +16,6 @@ object CatsExample extends App {
   println("-------------------")
 
   println(KVStore.pureResult)
-
 }
 
 object KVStore {
@@ -38,7 +37,6 @@ object KVStore {
         .map(v => put[T](key, f(v)))
         .getOrElse(Free.pure(()))
     } yield ()
-
 
   def program: KVStore[Option[Int]] =
     for {
@@ -70,7 +68,6 @@ object KVStore {
     }
 
   val result: Option[Int] = program.foldMap(impureCompiler)
-
 
   type KVStoreState[A] = State[Map[String, Any], A]
   val pureCompiler: KVStoreA ~> KVStoreState =

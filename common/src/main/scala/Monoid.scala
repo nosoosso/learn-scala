@@ -12,10 +12,10 @@ class ReportRow(val click: Int, val view: Int) {
   override def toString: String = s"ReportRow(${this.click}, ${this.view})"
 }
 
-
 object ReportRow {
-  def sumRows(rows: Seq[ReportRow]): ReportRow = rows
-    .foldLeft(new ReportRow(0, 0))((current, total) => current.plus(total))
+  def sumRows(rows: Seq[ReportRow]): ReportRow =
+    rows
+      .foldLeft(new ReportRow(0, 0))((current, total) => current.plus(total))
 
   val reportRowMonoid: Monoid[ReportRow] = new Monoid[ReportRow] {
     override def append(x: ReportRow, y: ReportRow): ReportRow = new ReportRow(x.click + y.click, x.view + y.view)
@@ -34,4 +34,3 @@ object MonoidMain {
     println(result)
   }
 }
-

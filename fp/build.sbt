@@ -12,15 +12,11 @@ libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-core" % "1.6.0",
   "org.typelevel" %% "cats-free" % "1.6.0",
   "org.typelevel" %% "cats-effect" % "1.2.0",
-
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
   "io.circe" %% "circe-parser" % circeVersion,
   "io.circe" %% "circe-refined" % circeVersion,
-
-
   "com.pepegar" %% "hammock-core" % "0.9.0",
   "com.pepegar" %% "hammock-apache-http" % "0.9.0",
-
-  "eu.timepit" %% "refined" % "0.9.7",
+  "eu.timepit" %% "refined" % "0.9.7"
 )
